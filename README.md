@@ -49,23 +49,18 @@ order by hour
 모든 레코드 조회하기
 ANIMAL_INS테이블에서 모든 정보를
 ANIMAL_ID의 오름차순으로 출력한다.
-
 -- 코드를 입력하세요
 SELECT *   //전부
 from ANIMAL_INS // 테이블
 order by ANIMAL_ID // order by로 오름차순 ANIMAL_ID기준
-
 ```
-
 ```sql
 NAME, DATETIME을 출력하는데 내림차순으로 정렬한다.
-
 -- 코드를 입력하세요
 SELECT NAME, DATETIME
 from ANIMAL_INS
 order by ANIMAL_ID desc // order by desc <-- 내림차순 , asc <-- 오름차순
 ```
-
 ```sql
 animal_id, name을 출력하는데
 동물의 컨디션이 sick이 조건으로 들어간다.
@@ -82,4 +77,11 @@ SELECT animal_id, name
 from animal_ins
 where intake_condition != "aged"
 order by animal_id
+```
+```sql
+동물의 id순으로 오름차순 정렬 
+-- 코드를 입력하세요
+SELECT animal_id, name
+from animal_ins
+order by animal_id asc
 ```
