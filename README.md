@@ -67,11 +67,19 @@ order by ANIMAL_ID desc // order by desc <-- 내림차순 , asc <-- 오름차순
 ```
 
 ```sql
-
 animal_id, name을 출력하는데
 동물의 컨디션이 sick이 조건으로 들어간다.
 -- 코드를 입력하세요
 SELECT animal_id, NAME
 from ANIMAL_INS
 where intake_condition = 'Sick'
+```
+```sql
+animal_id, name을 출력하는데
+동물의 컨디션이 aged가 아닌 것을 고른다.
+-- 코드를 입력하세요
+SELECT animal_id, name
+from animal_ins
+where intake_condition != "aged"
+order by animal_id
 ```
