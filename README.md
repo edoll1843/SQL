@@ -31,3 +31,18 @@ where hour(datetime) >= 9   //항상 select from where이다. 속성을 기준�
 group by hour
 order by hour
 ```
+
+
+
+```sql
+2021/08/24
+모든 레코드 조회하기
+ANIMAL_INS테이블에서 모든 정보를
+ANIMAL_ID의 오름차순으로 출력한다.
+
+-- 코드를 입력하세요
+SELECT *   //전부
+from ANIMAL_INS // 테이블
+order by ANIMAL_ID // order by로 오름차순 ANIMAL_ID기준
+
+```
