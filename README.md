@@ -1,17 +1,19 @@
 # SQL
 ```sql
 
+//sqld의 기본 구조
 select 속성
-from 테이블        // sqld의 기본 구조
+from 테이블       
+where 조건           
 
+// 정렬 
 order by 속성 desc // 내림차순
 order by 속성      // 오름차순
 
+//출력의 명칭 바꾸는 as
 SELECTE MAX/MIN/SUM/COUNT(속성이름) AS '출력의 명칭'
 
-FROM  테이블
-
-
+// 중복 제거
 SELECT COUNT(DISTINCT NAME) AS 'count'    <--- DISTINCT 속성 중복 제거 속성 앞에 붙어야한다.
 FROM 테이블
 
