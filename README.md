@@ -29,6 +29,11 @@ where 속성 is not null
 // 종류별로 묶는다.
 group by 속성
 
+// 종류별로 묶고 조건문
+group by 속성
+having 조건 // 이때 having은 group by 바로 뒤에 나와야한다.
+
+
 SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 그 개수를 띄워주는데 count라고 명칭
 from animal_ins //테이블 이름
 group by animal_type // animal_type별로 특정 컬럼을 그룹화하는 group by
@@ -133,4 +138,13 @@ select animal_type, count(animal_type) as 'count'
 from animal_ins
 group by animal_type //같은 종류별로 그룹화한다.
 order by animal_type
+```
+```sql
+동물의 이름 중 두번 이상 쓰인 동물의 이름과, 횟수를 출력한다.
+select name, count(name) as 'count'
+from animal_ins
+group by name
+having count > 1  //where은 그룹화하기 전에 쓰임, having은 group by 후에 쓰는데
+// having count는 select에서 'count'로 바꾼 속성을 말한다.
+order by
 ```
