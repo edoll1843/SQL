@@ -106,3 +106,8 @@ from animal_ins
 order by datetime
 limit 1
 ```
+```sql
+가장 늦게 들어온 동물을 '시간'으로 출력한다.
+SELECT MAX(DATETIME) AS '시간'
+FROM ANIMAL_INS
+```
