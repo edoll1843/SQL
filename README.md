@@ -63,3 +63,13 @@ SELECT NAME, DATETIME
 from ANIMAL_INS
 order by ANIMAL_ID desc // order by desc <-- 내림차순 , asc <-- 오름차순
 ```
+
+```sql
+
+animal_id, name을 출력하는데
+동물의 컨디션이 sick이 조건으로 들어간다.
+-- 코드를 입력하세요
+SELECT animal_id, NAME
+from ANIMAL_INS
+where intake_condition = 'Sick'
+```
