@@ -17,6 +17,11 @@ SELECTE MAX/MIN/SUM/COUNT(속성이름) AS '출력의 명칭'
 SELECT COUNT(DISTINCT NAME) AS 'count'    <--- DISTINCT 속성 중복 제거 속성 앞에 붙어야한다.
 FROM 테이블
 
+// 갯수 제한
+SELECT name 
+from animal_ins
+order by datetime
+limit 1            // limit로 갯수를 제한 걸 수 있다.
 
 SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 그 개수를 띄워주는데 count라고 명칭
 from animal_ins //테이블 이름
@@ -84,4 +89,20 @@ order by animal_id
 SELECT animal_id, name
 from animal_ins
 order by animal_id asc
+```
+```sql
+동물의 이름순으로 정렬하는데 같은 이름이 있으면 역순으로 정렬한다.
+distinct를 써야하나 생각했는데 결과값은 같음.
+-- 코드를 입력하세요
+SELECT animal_id, name, datetime
+from animal_ins
+order by name, datetime desc
+```
+```sql
+동물의 이름을 출력하는데 제일 먼저 들어온 동물을 출력한다.
+-- 코드를 입력하세요
+SELECT name 
+from animal_ins
+order by datetime
+limit 1
 ```
