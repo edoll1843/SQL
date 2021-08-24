@@ -26,6 +26,9 @@ limit 1            // limit로 갯수를 제한 걸 수 있다.
 // null이 아닌
 where 속성 is not null
 
+// 종류별로 묶는다.
+group by 속성
+
 SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 그 개수를 띄워주는데 count라고 명칭
 from animal_ins //테이블 이름
 group by animal_type // animal_type별로 특정 컬럼을 그룹화하는 group by
@@ -122,4 +125,12 @@ FROM ANIMAL_INS
 SELECT count(distinct name) as 'count'
 from animal_ins
 where name is not null
+```
+```sql
+동물의 타입은 cat, dog밖에없는데 이 동물들 타입별로 각각 몇마리인지
+조회한다. 이때 고양이를 개보다 먼저 조회한다. <-- 타입을 정렬
+select animal_type, count(animal_type) as 'count'
+from animal_ins
+group by animal_type //같은 종류별로 그룹화한다.
+order by animal_type
 ```
