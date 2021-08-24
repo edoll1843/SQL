@@ -1,5 +1,12 @@
 # SQL
 ```sql
+
+select 속성
+from 테이블        // sqld의 기본 구조
+
+order by 속성 desc // 내림차순
+order by 속성      // 오름차순
+
 SELECTE MAX/MIN/SUM/COUNT(속성이름) AS '출력의 명칭'
 
 FROM  테이블
@@ -13,6 +20,7 @@ SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 
 from animal_ins //테이블 이름
 group by animal_type // animal_type별로 특정 컬럼을 그룹화하는 group by
 order by animal_type // animal_type순으로 정렬
+
 
 
 -- 코드를 입력하세요
@@ -45,4 +53,13 @@ SELECT *   //전부
 from ANIMAL_INS // 테이블
 order by ANIMAL_ID // order by로 오름차순 ANIMAL_ID기준
 
+```
+
+```sql
+NAME, DATETIME을 출력하는데 내림차순으로 정렬한다.
+
+-- 코드를 입력하세요
+SELECT NAME, DATETIME
+from ANIMAL_INS
+order by ANIMAL_ID desc // order by desc <-- 내림차순 , asc <-- 오름차순
 ```
