@@ -23,6 +23,9 @@ from animal_ins
 order by datetime
 limit 1            // limit로 갯수를 제한 걸 수 있다.
 
+// null이 아닌
+where 속성 is not null
+
 SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 그 개수를 띄워주는데 count라고 명칭
 from animal_ins //테이블 이름
 group by animal_type // animal_type별로 특정 컬럼을 그룹화하는 group by
