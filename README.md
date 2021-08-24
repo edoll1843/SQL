@@ -108,6 +108,15 @@ limit 1
 ```
 ```sql
 가장 늦게 들어온 동물을 '시간'으로 출력한다.
+min, count이 다음문제들 
 SELECT MAX(DATETIME) AS '시간'
 FROM ANIMAL_INS
+```
+```sql
+동물의 이름은 몇개인지 출력하고 null인경우는 집계하지 않고
+중복되는 이름은 하나로 친다.
+-- 코드를 입력하세요
+SELECT count(distinct name) as 'count'
+from animal_ins
+where name != 'NULL'
 ```
