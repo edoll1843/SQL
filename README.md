@@ -33,31 +33,21 @@ group by 속성
 group by 속성
 having 조건 // 이때 having은 group by 바로 뒤에 나와야한다.
 
+// 날짜 데이터에서 일부만 추출하기
+YEAR(기준 날짜)
+MONTH(기준 날짜)
+DAY(기준 날짜)
+HOUR(기준 날짜)
+MINUTE(기준 날짜)
+SECOND(기준 날짜)
 
-SELECT animal_type, count(animal_type) as count // anmial_type을 가져오고, 그 개수를 띄워주는데 count라고 명칭
-from animal_ins //테이블 이름
-group by animal_type // animal_type별로 특정 컬럼을 그룹화하는 group by
-order by animal_type // animal_type순으로 정렬
+// where 절의 조합(AND/OR/NOT/IN)
+and == &&
+or == ||
+not == !=
 
-
-
--- 코드를 입력하세요
-SELECT name, count(name) as count   //출력문
-from animal_ins // 테이블
-group by name // name그룹으로 데이터를 그룹화
-having count > 1 // 그룹에 조건을 걸땐 having이여야한다.
-order by name // 정렬
-
--- 코드를 입력하세요
-SELECT hour(datetime) as hour, count(datetime) as count //hour은 시간이다.
-from animal_outs
-where hour(datetime) >= 9   //항상 select from where이다. 속성을 기준으로 하는거기 때문에 where을 쓴다.
-    and hour(datetime) <= 19
-
-group by hour
-order by hour
-```
-
+// 변수 선언
+SET @변수명 := 초기값;   // 세미콜론 꼭 있어야함
 
 
 ```sql
@@ -147,4 +137,40 @@ group by name
 having count > 1  //where은 그룹화하기 전에 쓰임, having은 group by 후에 쓰는데
 // having count는 select에서 'count'로 바꾼 속성을 말한다.
 order by
+```
+```sql
+09시부터 19:59분까지 각 시간대 별로 입양이 몇 건이 발생했는지 알아보려고 한다.
+select hour(datetime) as 'hour', count(animal_id) as 'count'
+from animal_outs
+where hour(datetime) >=9 and hour(datetime) <=19 
+group by hour
+order by hour
+```
+```sql
+몇시에 가장 활발하게 일어나는지 각 시간대 별로 입양이 몇 건이나 발생했는지 찾는다.
+이때 결과는 시간대 순으로 정렬
+set @hour := -1;     //변수 선언
+select (@hour := @hour +1) as hour , (
+    select count(*)
+    from animal_outs
+    where hour(datetime) = @hour ) as 'count'
+from animal_outs
+where @hour < 23
+group by animal_id
+order by hour
+```
+```sql
+이름이 없는 동물의 아이디를 출력한다.
+-- 코드를 입력하세요
+SELECT animal_id
+from animal_ins
+where name is null
+```
+```sql
+이름이 있는 동물을 출력한다.
+-- 코드를 입력하세요
+SELECT animal_id
+from animal_ins
+where name is not null
+order by animal_id
 ```
