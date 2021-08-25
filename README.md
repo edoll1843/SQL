@@ -57,7 +57,7 @@ ifnull(검사할 속성, '대체할 값')
 
 
 
-
+```
 
 ```sql
 2021/08/24
@@ -69,7 +69,6 @@ SELECT *   //전부
 from ANIMAL_INS // 테이블
 order by ANIMAL_ID // order by로 오름차순 ANIMAL_ID기준
 ```
-
 ```sql
 NAME, DATETIME을 출력하는데 내림차순으로 정렬한다.
 -- 코드를 입력하세요
@@ -191,4 +190,3 @@ from animal_ins
 order by animal_id
 ```
 
-```
