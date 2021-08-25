@@ -49,6 +49,15 @@ not == !=
 // 변수 선언
 SET @변수명 := 초기값;   // 세미콜론 꼭 있어야함
 
+// null 처리
+속성의 데이터가 null이면 다른 방법으로 바꿀 수가 있다.
+ifnull(검사할 속성, '대체할 값')
+
+
+
+
+
+
 
 ```sql
 2021/08/24
@@ -172,5 +181,11 @@ where name is null
 SELECT animal_id
 from animal_ins
 where name is not null
+order by animal_id
+```
+```sql
+이름이 null인 것은 no name으로 처리해준다.
+SELECT animal_type,  ifnull(name,"No name") as 'name', sex_upon_intake
+from animal_ins
 order by animal_id
 ```
