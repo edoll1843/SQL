@@ -56,10 +56,14 @@ ifnull(검사할 속성, '대체할 값')
 // 속성에 일부 문자를 포함
 속성 like "%포함할문자%"
 
-
-
-
-
+//조건에 따라 값을 지정하기, case문
+case 속성
+    when 조건1 then 값
+    when 조건2 then 값2
+    else 값3
+    end as '속성명칭'
+    
+    
 ```
 
 ```sql
@@ -199,4 +203,19 @@ select animal_id, name
 from animal_ins
 where animal_type = 'Dog' and name like '%EL%'
 order by name
+```
+
+```sql
+case문을 이용하여 조건에 맞는 값을 출력
+case
+when 조건1 then 값1
+when 조건2 then 값2
+else 값3
+end as "명칭"
+
+select animal_id, name, case 
+when sex_upon_intake like '%Neutered%' or sex_upon_intake like '%spayed%' then "O"
+else "X"
+end as "중성화"
+from animal_ins
 ```
