@@ -87,6 +87,16 @@ Truncate(숫자, 버릴 자릿수)    버림
 pow(10,2)                      제곱
 mod(10,3)                      나머지
 
+//join
+모든 조인의 형태는
+select ~
+from table_a a left join table b on a.key = b.key
+이 기본이다. 이때
+where b.key is null을 추가하면 순수 A값을 추출하는 것이다.
+
+inner join은 A,B의 겹치는 부분
+full outer join은 둘다 가지는 전체 부분
+
 ```
 
 ```sql
@@ -256,4 +266,9 @@ limit 2
 SELECT animal_id, name, date_format(datetime, "%Y-%m-%d") as '날짜'
 from animal_ins
 order by animal_id
+```
+```sql
+select outs.animal_id, outs.name
+from animal_ins ins right join animal_outs outs on ins.animal_id = outs.animal_id
+where ins.animal_id is null
 ```
