@@ -69,6 +69,23 @@ select a.속성, a.속성
 from 테이블1 a, 테이블2 
 이렇게from을 먼저 선언하여 사용할 테이블의 명칭을 지정해줘야한다.
 
+//날짜 형식 지정
+select 속성,속성2,date_format(날짜속성, "%Y-%m-%d")와 같이 사용
+
+%Y 4자리 년도           2021
+%y 2자리 년도           21
+%m 숫자 월 (두자리)     08
+%M 영문 월              august
+%d 일자(두자리)         30
+%D 일자(th)             30th
+
+//숫자 관련 함수 반올림과 버림
+abs(숫자)                     절대값 
+round(숫자, 반올림할 자릿수)   반올림
+ceil(숫자)                     올림
+Truncate(숫자, 버릴 자릿수)    버림
+pow(10,2)                      제곱
+mod(10,3)                      나머지
 
 ```
 
@@ -233,4 +250,10 @@ from animal_ins a, animal_outs b
 where a.animal_id = b.animal_id
 order by  b.datetime- a.datetime  desc
 limit 2
+```
+```sql
+날짜의 포맷을 따로 지정해주는 date_format(날짜, "형식")
+SELECT animal_id, name, date_format(datetime, "%Y-%m-%d") as '날짜'
+from animal_ins
+order by animal_id
 ```
