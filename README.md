@@ -8,7 +8,8 @@ where 조건
 
 // 정렬 
 order by 속성 desc // 내림차순
-order by 속성      // 오름차순
+order by 속성      // 오름차
+order by b.datetime- a.datetime desc // 이렇게 정렬기준을 따로 만들 수도 있다.
 
 //출력의 명칭 바꾸는 as
 SELECTE MAX/MIN/SUM/COUNT(속성이름) AS '출력의 명칭'
@@ -62,8 +63,13 @@ case
     when 조건2 then 값2
     else 값3
 end as '속성명칭'
-    
-    
+
+//두 테이블 있을 때
+select a.속성, a.속성
+from 테이블1 a, 테이블2 
+이렇게from을 먼저 선언하여 사용할 테이블의 명칭을 지정해줘야한다.
+
+
 ```
 
 ```sql
@@ -218,4 +224,13 @@ when sex_upon_intake like '%Neutered%' or sex_upon_intake like '%spayed%' then "
 else "X"
 end as "중성화"
 from animal_ins
+```
+
+```sql
+두 테이블 있을 떄 보호기간이 가장 긴 동물을 2마리를 출력
+select a.animal_id, a.name
+from animal_ins a, animal_outs b
+where a.animal_id = b.animal_id
+order by  b.datetime- a.datetime  desc
+limit 2
 ```
