@@ -57,11 +57,11 @@ ifnull(검사할 속성, '대체할 값')
 속성 like "%포함할문자%"
 
 //조건에 따라 값을 지정하기, case문
-case 속성
+case
     when 조건1 then 값
     when 조건2 then 값2
     else 값3
-    end as '속성명칭'
+end as '속성명칭'
     
     
 ```
