@@ -53,6 +53,9 @@ SET @변수명 := 초기값;   // 세미콜론 꼭 있어야함
 속성의 데이터가 null이면 다른 방법으로 바꿀 수가 있다.
 ifnull(검사할 속성, '대체할 값')
 
+// 속성에 일부 문자를 포함
+속성 like "%포함할문자%"
+
 
 
 
@@ -190,3 +193,10 @@ from animal_ins
 order by animal_id
 ```
 
+```sql
+name에 el이 포함된 데이터 찾는 법
+select animal_id, name
+from animal_ins
+where animal_type = 'Dog' and name like '%EL%'
+order by name
+```
